@@ -1,0 +1,38 @@
+@* Indicates that the view expects a list of Projects as its model. *@
+@model List<Project>
+
+@{
+    // Razor Block
+    ViewBag.Title = "Projects";
+    Layout = "_Layout";
+}
+
+<h2>Projects</h2>
+
+@if (Model.Any())
+{
+    // Iterate
+    <table class="table">
+        <thread>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </thread>
+        
+        <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+            <td>@project.ProjectId</td>
+            <td>@project.Name</td>
+            <td>@project.Description</td>
+            <!-- Render any other project properties as desired -->
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No projects available</p>   
+}

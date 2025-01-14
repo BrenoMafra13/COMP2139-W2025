@@ -18,12 +18,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Shared/Error.cshtml]
