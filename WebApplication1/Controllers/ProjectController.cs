@@ -23,6 +23,17 @@ public class ProjectController : Controller
     [HttpPost]
     public IActionResult Create(Project project)
     {
+        // Persist new project to the DataBase
         return RedirectToAction("Index");
+    }
+    
+    // CRUD: Create - Read - Update - Delete
+
+    [HttpGet]
+    public IActionResult Details(int id)
+    {
+        // Retrieve project from database
+        var project = new Project { ProjectId = 1, Name = "Project 1", Description = "First Project" };
+        return View(project);
     }
 }
