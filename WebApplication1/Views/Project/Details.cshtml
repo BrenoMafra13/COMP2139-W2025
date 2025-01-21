@@ -6,3 +6,18 @@
 }
 
 <h2>Project Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Name</h3>
+        <p class="card-text">@Model.Description</p>
+        
+        <!-- Display other properties of the project as needed/desired -->
+        <dl class="row">
+            <dt class="col-sm-3">Project Id</dt>
+            <dt class="col-sm-9">@Model.ProjectId</dt>
+        </dl>
+        <a asp-controller="Project" asp-action="Edit" asp-route-id="@Model.ProjectId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

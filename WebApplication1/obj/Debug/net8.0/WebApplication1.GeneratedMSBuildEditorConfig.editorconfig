@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
@@ -28,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Project/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvamVjdC9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Project/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvamVjdC9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/Views/Project/Index.cshtml]

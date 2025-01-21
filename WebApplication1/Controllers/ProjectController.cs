@@ -33,7 +33,7 @@ public class ProjectController : Controller
     public IActionResult Details(int id)
     {
         // Retrieve project from database
-        var project = new Project { ProjectId = 1, Name = "Project 1", Description = "First Project" };
+        var project = new Project { ProjectId = id, Name = "Project 1", Description = "First Project" };
         return View(project);
     }
 }
