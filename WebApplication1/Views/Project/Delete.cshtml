@@ -1,0 +1,34 @@
+@model Project
+
+@{
+    ViewBag.Title = "Delete Project";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete thisn project?</h3>
+<div>
+    <h4>Project Details...</h4>
+    <hr/>
+    <dl>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed" method="post">
+        @Html.HiddenFor(model => model.ProjectId)
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
