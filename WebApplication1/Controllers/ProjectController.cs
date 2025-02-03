@@ -113,4 +113,18 @@ public class ProjectController : Controller
 
         return View(project);
     }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int ProjectId)
+    {
+        var project = _context.Projects.Find(ProjectId);
+        if (project == null)
+        {
+            _context.Projects.Remove(project);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return NotFound();
+    }
 }
