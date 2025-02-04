@@ -24,6 +24,9 @@ public class Project
     [DataType(DataType.Date)]
     public DateTime endDate { get; set; }
     
-    
     public string? Status { get; set; }
+    
+    // One-to-Many relationship
+    // This will allow EF Core to understand that one Project has potentially many ProjectTasks
+    public List<ProjectTask>? Tasks { get; set; }
 }
