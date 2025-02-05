@@ -35,6 +35,7 @@
                 <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
                 <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-warning">Edit</a>
                 <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
+                <a asp-action="Index" asp-controller="ProjectTask" asp-route-projectId="@project.ProjectId" class="btn btn-secondary">View Tasks</a>
             </td>
             <!-- Render any other project properties as desired -->
             </tr>

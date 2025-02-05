@@ -35,6 +35,9 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
+            project.startDate = project.startDate.ToUniversalTime();
+            project.endDate = project.endDate.ToUniversalTime();
+            
             _context.Projects.Add(project);
             _context.SaveChanges();
             return RedirectToAction("Index");

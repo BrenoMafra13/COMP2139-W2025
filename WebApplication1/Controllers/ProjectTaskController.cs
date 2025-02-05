@@ -18,7 +18,6 @@ public class ProjectTaskController : Controller
     public IActionResult Index(int projectId)
     {
         var tasks = _context.Tasks.Where(t => t.ProjectId == projectId).ToList();
-
         ViewBag.ProjectId = projectId;
         return View(tasks);
     }
@@ -26,70 +25,65 @@ public class ProjectTaskController : Controller
     [HttpGet]
     public IActionResult Details(int id)
     {
-        var task = _context.Tasks
-            .Include(p => p.Project)
-            .FirstOrDefault(t => t.ProjectTaskId == id);
-
+        var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
         if (task == null)
         {
             return NotFound();
         }
-
         return View(task);
     }
 
     [HttpGet]
-    public IActionResult Create(int projectId)
+    public IActionResult Create(int? projectId)
     {
-        var project = _context.Projects.Find(projectId);
+        if (!projectId.HasValue)
+        {
+            return NotFound("Project ID is required");
+        }
 
+        var project = _context.Projects.Find(projectId.Value);
         if (project == null)
         {
-            return NotFound();
+            return NotFound("Project not found");
         }
-        
-        // Create empty project for View
+
         var task = new ProjectTask
         {
-            ProjectId = projectId,
+            ProjectId = projectId.Value,
             Title = "",
-            Description = "",
+            Description = ""
         };
         return View(task);
     }
 
+
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create([Bind("Title", "Description", "ProjectId")] ProjectTask task)
+    public IActionResult Create([Bind("Title, Description, ProjectId")] ProjectTask task)
     {
         if (ModelState.IsValid)
         {
             _context.Tasks.Add(task);
             _context.SaveChanges();
-            // Return to the index action with the projectId of the task
-            return RedirectToAction("Index", new {projectId = task.ProjectId});
+            return RedirectToAction("Index", new { projectId = task.ProjectId });
         }
-
         return View(task);
     }
 
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var task = _context.Tasks.Include(p => p.Project)
-            .FirstOrDefault(t => t.ProjectTaskId == id);
-
+        var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
         if (task == null)
         {
             return NotFound();
         }
-
         return View(task);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(int id, [Bind("ProjectTaskId", "Title", "Description", "ProjectId")] ProjectTask task)
+    public IActionResult Edit(int id, [Bind("ProjectTaskId, Title, Description, ProjectId")] ProjectTask task)
     {
         if (id != task.ProjectTaskId)
         {
@@ -102,21 +96,17 @@ public class ProjectTaskController : Controller
             _context.SaveChanges();
             return RedirectToAction("Index", new { projectId = task.ProjectId });
         }
-
         return View(task);
     }
 
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var task = _context.Tasks.Include(p => p.Project)
-            .FirstOrDefault(t => t.ProjectTaskId == id);
-
+        var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
         if (task == null)
         {
             return NotFound();
         }
-
         return View(task);
     }
 
@@ -131,7 +121,6 @@ public class ProjectTaskController : Controller
             _context.SaveChanges();
             return RedirectToAction("Index", new { projectId = task.ProjectId });
         }
-
         return NotFound();
     }
 }

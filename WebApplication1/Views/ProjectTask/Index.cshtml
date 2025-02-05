@@ -9,7 +9,7 @@
 
 <h2>Project Tasks</h2>
 
-<a asp-action="Create" class="btn btn-primary">Create New Task for the Project</a>
+<a asp-action="Create" asp-controller="ProjectTask" asp-route-projectId="@ViewBag.projectId" class="btn btn-primary">Create New Task for the Project</a>
 
 @if (Model.Any())
 {
