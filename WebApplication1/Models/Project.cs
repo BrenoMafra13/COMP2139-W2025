@@ -7,6 +7,7 @@ public class Project
     /// <summary>
     ///  This is the primary key for the projects
     /// </summary>
+    [Key]
     public int ProjectId { get; set; }
     
     /// <summary>

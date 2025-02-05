@@ -23,6 +23,12 @@ public class ProjectController : Controller
         return View(projects);
     }
     
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+    
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create(Project project)
@@ -119,7 +125,7 @@ public class ProjectController : Controller
     public IActionResult DeleteConfirmed(int ProjectId)
     {
         var project = _context.Projects.Find(ProjectId);
-        if (project == null)
+        if (project != null)
         {
             _context.Projects.Remove(project);
             _context.SaveChanges();
@@ -127,4 +133,5 @@ public class ProjectController : Controller
         }
         return NotFound();
     }
+
 }

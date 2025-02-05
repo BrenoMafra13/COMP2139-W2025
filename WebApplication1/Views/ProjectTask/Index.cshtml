@@ -1,0 +1,48 @@
+@* Indicates that the view expects a list of Projects as its model. *@
+@model List<ProjectTask>
+
+@{
+    // Razor Block
+    ViewBag.Title = "Project Tasks";
+    Layout = "_Layout";
+}
+
+<h2>Project Tasks</h2>
+
+<a asp-action="Create" class="btn btn-primary">Create New Task for the Project</a>
+
+@if (Model.Any())
+{
+    // Iterate
+    <table class="table">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thread>
+        
+        <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.ProjectTaskId</td>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@task.ProjectTaskId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@task.ProjectTaskId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.ProjectTaskId" class="btn btn-danger">Delete</a>
+                </td>
+                <!-- Render any other project properties as desired -->
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No tasks available for this project</p>   
+}

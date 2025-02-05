@@ -1,0 +1,26 @@
+@model ProjectTask
+
+@{
+    ViewBag.Title = "Task Details";
+    Layout = "_Layout";
+}
+
+<h2>Task Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Title</h3>
+        
+        <!-- Display other properties of the project as needed/desired -->
+        <dl class="row">
+            <dt class="col-sm-3">Task Id</dt>
+            <dd class="col-sm-9">@Model.ProjectTaskId</dd>
+            
+            <dt class="col-sm-3">Task Description</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+        </dl>
+        
+        <a asp-controller="ProjectTask" asp-action="Edit" asp-route-id="@Model.ProjectTaskId" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-warning">Cancel</a>
+    </div>
+</div>

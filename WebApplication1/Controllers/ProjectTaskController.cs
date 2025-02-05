@@ -122,7 +122,7 @@ public class ProjectTaskController : Controller
 
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public IActionResult DeteleConfirmed(int ProjectTaskId)
+    public IActionResult DeleteConfirmed(int ProjectTaskId)
     {
         var task = _context.Tasks.Find(ProjectTaskId);
         if (task != null)
