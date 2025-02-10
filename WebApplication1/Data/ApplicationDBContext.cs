@@ -13,6 +13,13 @@ public class ApplicationDBContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
+        modelBuilder.Entity<Project>()
+            .HasMany(p => p.Tasks)
+            .WithOne(t => t.Project)
+            .HasForeignKey(t => t.ProjectId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
         // Seeds Project tabel with two projects upon bootup
         modelBuilder.Entity<Project>().HasData(
             new Project {ProjectId = 1, Name = "Assignment 1", Description = "COMP2139 Assignment 1"},

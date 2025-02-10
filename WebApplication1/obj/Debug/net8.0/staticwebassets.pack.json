@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/scopedcss/projectbundle/WebApplication1.bundle.scp.css",
-      "PackagePath": "staticwebassets/WebApplication1.bundle.scp.css"
+      "PackagePath": "staticwebassets/WebApplication1.xowli138bt.bundle.scp.css"
     },
     {
       "Id": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/css/site.css",
@@ -243,6 +243,10 @@
     {
       "Id": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/lib/jquery/dist/jquery.min.map",
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",

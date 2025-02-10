@@ -135,3 +135,6 @@
 /Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/WebApplication1.csproj.AssemblyReference.cache
 /Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/WebAppli.7D14BD69.Up2Date
+/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/bin/Debug/net8.0/WebApplication1.staticwebassets.endpoints.json
+/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/obj/Debug/net8.0/staticwebassets/msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
