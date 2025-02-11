@@ -6,6 +6,8 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
 
+[Route("Project")]
+
 public class ProjectController : Controller
 {
 
@@ -137,4 +139,27 @@ public class ProjectController : Controller
         return NotFound();
     }
 
+    [HttpGet("Search/{searchString}")]
+    public async Task<IActionResult> Search(string searchString)
+    {
+        // Fetch all projects from the database as Queryable colletion
+        // This allows us to apply filters before executing the DB Query
+        var projectQuery = _context.Projects.AsQueryable();
+
+        bool searchPerformed = !string.IsNullOrWhiteSpace(searchString);
+
+        if (searchPerformed)
+        {
+            searchString = searchString.ToLower();
+            
+            projectQuery.Where(p => p.Name.ToLower().Contains(searchString)
+            || (p.Description != null && p.Description.ToLower().Contains(searchString)));
+        }
+        var projects = await projectQuery.ToListAsync();
+
+        ViewData["SearchPerformed"] = searchPerformed;
+        ViewData["SearchString"] = searchString;
+        
+        return View("Index", projects);
+    }
 }

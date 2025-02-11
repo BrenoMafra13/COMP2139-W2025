@@ -5,6 +5,8 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
 
+[Route("ProjectTask")]
+
 public class ProjectTaskController : Controller
 {
     private readonly ApplicationDBContext _context;
@@ -123,4 +125,32 @@ public class ProjectTaskController : Controller
         }
         return NotFound();
     }
+
+    [HttpGet("Search")]
+    public async Task<IActionResult> Search(int? projectId, string searchString)
+    {
+        var taskQuery = _context.Tasks.AsQueryable();
+
+        bool searchPerformed = !string.IsNullOrWhiteSpace(searchString);
+
+        if (projectId.HasValue)
+        {
+            taskQuery = taskQuery.Where(t => t.ProjectId == projectId.Value);
+        }
+
+        if (searchPerformed)
+        {
+            taskQuery = taskQuery.Where(t => t.Title.ToLower().Contains(searchString.ToLower()) 
+                                             || (t.Description != null && t.Description.ToLower().Contains(searchString.ToLower())));
+        }
+
+        var tasks = await taskQuery.ToListAsync();
+
+        ViewBag.ProjectId = projectId;
+        ViewData["SearchPerformed"] = searchPerformed;
+        ViewData["searchString"] = searchString;
+
+        return View("Index", tasks);
+    }
+
 }

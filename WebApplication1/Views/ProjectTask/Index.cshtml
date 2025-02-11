@@ -5,6 +5,9 @@
     // Razor Block
     ViewBag.Title = "Project Tasks";
     Layout = "_Layout";
+    
+    bool searchPerformed = ViewData["SearchPerformed"] as bool? ?? false;
+    string searchString = ViewData["SearchString"] as string;
 }
 
 <h2>Project Tasks</h2>
@@ -42,7 +45,14 @@
 }
 else
 {
-    <p>No tasks available for this project</p>   
+    if (searchPerformed)
+    {
+        <p>No Tasks available withname "@searchString" were found</p>
+    }
+    else
+    {
+        <p>No tasks available for this project</p>  
+    }
 }
 
 <a asp-action="Create" asp-controller="ProjectTask" asp-route-projectId="@ViewBag.projectId" class="btn btn-primary">Create New Task for the Project</a>
