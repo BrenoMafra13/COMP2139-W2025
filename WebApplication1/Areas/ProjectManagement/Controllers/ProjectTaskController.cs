@@ -33,6 +33,8 @@ public class ProjectTaskController : Controller
         {
             return NotFound();
         }
+        // Certificando que ProjectId está disponível, considerando que há uma relação com Project
+        ViewBag.ProjectId = task.Project.ProjectId;
         return View(task);
     }
 
@@ -60,7 +62,7 @@ public class ProjectTaskController : Controller
     }
 
 
-    [HttpPost("Create")]
+    [HttpPost("Create/{projectId}")]
     [ValidateAntiForgeryToken]
     public IActionResult Create([Bind("Title, Description, ProjectId")] ProjectTask task)
     {
@@ -81,8 +83,11 @@ public class ProjectTaskController : Controller
         {
             return NotFound();
         }
+        // Certifique-se que o ProjectId é passado para a View corretamente
+        ViewBag.ProjectId = task.ProjectId; // Supondo que você tenha acesso a essa propriedade
         return View(task);
     }
+
 
     [HttpPost("Edit/{id}")]
     [ValidateAntiForgeryToken]
@@ -90,17 +95,41 @@ public class ProjectTaskController : Controller
     {
         if (id != task.ProjectTaskId)
         {
+            ModelState.AddModelError("", "Task ID mismatch.");
             return NotFound();
         }
 
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
-            _context.Tasks.Update(task);
-            _context.SaveChanges();
-            return RedirectToAction("Index", new { projectId = task.ProjectId });
+            return View(task);
         }
-        return View(task);
+
+        var existingTask = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
+        if (existingTask == null)
+        {
+            ModelState.AddModelError("", "Task not found.");
+            return NotFound("Task not found.");
+        }
+
+        existingTask.Title = task.Title;
+        existingTask.Description = task.Description;
+        existingTask.ProjectId = task.ProjectId;
+
+        try
+        {
+            _context.Update(existingTask);
+            _context.SaveChanges();
+            return RedirectToAction("Index", new { projectId = task.ProjectId }); // Certifique-se de que esse valor está correto
+        }
+        catch (DbUpdateException ex)
+        {
+            ModelState.AddModelError("", "An error occurred while updating the task.");
+            return View(task);
+        }
     }
+
+
+
 
     [HttpGet("Delete/{id}")]
     public IActionResult Delete(int id)
@@ -115,9 +144,9 @@ public class ProjectTaskController : Controller
 
     [HttpPost("Delete/{id}"), ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public IActionResult DeleteConfirmed(int ProjectTaskId)
+    public IActionResult DeleteConfirmed(int projectTaskId)
     {
-        var task = _context.Tasks.Find(ProjectTaskId);
+        var task = _context.Tasks.Find(projectTaskId);
         if (task != null)
         {
             _context.Tasks.Remove(task);

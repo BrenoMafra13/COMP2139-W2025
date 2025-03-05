@@ -21,6 +21,6 @@
         </dl>
         
         <a asp-controller="ProjectTask" asp-action="Edit" asp-route-id="@Model.ProjectTaskId" class="btn btn-primary">Edit</a>
-        <a asp-action="Index" class="btn btn-warning">Cancel</a>
+        <a asp-action="Index" asp-controller="ProjectTask" asp-route-projectId="@Model.ProjectId" class="btn btn-secondary">Back to List</a>
     </div>
 </div>

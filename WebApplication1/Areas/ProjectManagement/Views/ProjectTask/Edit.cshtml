@@ -13,6 +13,7 @@
     <!-- Hidden field to ensure the ProjectID (Primary key) is included in the form
     submission link in the data to the correct record in the database -->
     @Html.HiddenFor(model => model.ProjectTaskId)
+    @Html.HiddenFor(model => model.ProjectId)
     
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
@@ -30,7 +31,7 @@
 
     <div class="form-group">
         <input type="submit" value="Save" class="btn btn-primary"/>
-        <a asp-action="Index" btn="btn btn-secondary">Cancel</a>
+        <a asp-action="Index" asp-controller="ProjectTask" asp-route-projectId="@Model.ProjectId" class="btn btn-secondary">Back to List</a>
     </div>
 
 </form>

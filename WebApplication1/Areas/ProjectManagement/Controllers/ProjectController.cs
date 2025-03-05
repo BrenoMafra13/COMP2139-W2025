@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApplication1.Data;
 using WebApplication1.Areas.ProjectManagement.Models;
 
@@ -126,11 +125,11 @@ public class ProjectController : Controller
         return View(project);
     }
 
-    [HttpPost("Delete"), ActionName("Delete")]
+    [HttpPost("Delete/{projectId}"), ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public IActionResult DeleteConfirmed(int ProjectId)
+    public IActionResult DeleteConfirmed(int projectId)
     {
-        var project = _context.Projects.Find(ProjectId);
+        var project = _context.Projects.Find(projectId);
         if (project != null)
         {
             _context.Projects.Remove(project);
@@ -140,27 +139,21 @@ public class ProjectController : Controller
         return NotFound();
     }
 
-    [HttpGet("Search/{searchString}")]
+    [HttpGet("Search")]
     public async Task<IActionResult> Search(string searchString)
     {
-        // Fetch all projects from the database as Queryable colletion
-        // This allows us to apply filters before executing the DB Query
         var projectQuery = _context.Projects.AsQueryable();
 
-        bool searchPerformed = !string.IsNullOrWhiteSpace(searchString);
-
-        if (searchPerformed)
+        if (!string.IsNullOrWhiteSpace(searchString))
         {
             searchString = searchString.ToLower();
-            
-            projectQuery.Where(p => p.Name.ToLower().Contains(searchString)
-            || (p.Description != null && p.Description.ToLower().Contains(searchString)));
+            projectQuery = projectQuery.Where(p => p.Name.ToLower().Contains(searchString)
+                                                   || (p.Description != null && p.Description.ToLower().Contains(searchString)));
         }
-        var projects = await projectQuery.ToListAsync();
 
-        ViewData["SearchPerformed"] = searchPerformed;
-        ViewData["SearchString"] = searchString;
-        
-        return View("Index", projects);
+        var projects = await projectQuery.ToListAsync();
+        return View("Index", projects);  // Confirme que 'Index' é a view correta
     }
+
+
 }

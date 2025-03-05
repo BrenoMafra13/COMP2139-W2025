@@ -7,7 +7,7 @@
 
 <h2>Create Task</h2>
 
-<form asp-action="Create" method="post">
+<form asp-area="ProjectManagement" asp-controller="ProjectTask" asp-action="Create" asp-route-projectId="@Model.ProjectId" method="post">
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
         <input asp-for="Title" class="form-control" />
