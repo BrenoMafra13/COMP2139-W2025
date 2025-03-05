@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+            
+        <a class="navbar-brand" 
+           asp-area="" 
+           asp-controller="Home" 
+           asp-action="Index"><i class="fa-solid fa-building"></i>PM Tool Inc</a>
+            
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                
+            <form class="d-flex align-items-center" asp-controller="Home" asp-action="GeneralSearch" method="get">
+                <div class="input-group">
+                    <input class="form-control me-2" type="text" placeholder="Search..." name="searchString" required/>
+                    <select class="form-select me-2" name="searchType" required>
+                        <option value="" disabled selected>Select Search Type</option>
+                        <option value="Projects">Projects</option>
+                        <option value="Tasks">Projects</option>
+                    </select>
+                        
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                </div>
+            </form>
+                
+            <ul class="navbar-nav flex-grow-1 justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About"><i class="fa-solid fa-circle-info"></i>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="ProjectManagement" asp-action="Index"><i class="fa-solid fa-list-check"></i>Projects</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

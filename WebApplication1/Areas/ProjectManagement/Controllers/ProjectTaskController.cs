@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.Models;
+using WebApplication1.Areas.ProjectManagement.Models;
 
-namespace WebApplication1.Controllers;
+namespace WebApplication1.Areas.ProjectManagement.Controllers;
 
+[Area("ProjectManagement")]
 [Route("ProjectTask")]
 
 public class ProjectTaskController : Controller
@@ -16,7 +17,7 @@ public class ProjectTaskController : Controller
         _context = context;
     }
 
-    [HttpGet]
+    [HttpGet("")]
     public IActionResult Index(int projectId)
     {
         var tasks = _context.Tasks.Where(t => t.ProjectId == projectId).ToList();
@@ -24,7 +25,7 @@ public class ProjectTaskController : Controller
         return View(tasks);
     }
 
-    [HttpGet]
+    [HttpGet("Details/{id}")]
     public IActionResult Details(int id)
     {
         var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
@@ -35,7 +36,7 @@ public class ProjectTaskController : Controller
         return View(task);
     }
 
-    [HttpGet]
+    [HttpGet("Create/{projectId}")]
     public IActionResult Create(int? projectId)
     {
         if (!projectId.HasValue)
@@ -59,7 +60,7 @@ public class ProjectTaskController : Controller
     }
 
 
-    [HttpPost]
+    [HttpPost("Create")]
     [ValidateAntiForgeryToken]
     public IActionResult Create([Bind("Title, Description, ProjectId")] ProjectTask task)
     {
@@ -72,7 +73,7 @@ public class ProjectTaskController : Controller
         return View(task);
     }
 
-    [HttpGet]
+    [HttpGet("Edit/{id}")]
     public IActionResult Edit(int id)
     {
         var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
@@ -83,7 +84,7 @@ public class ProjectTaskController : Controller
         return View(task);
     }
 
-    [HttpPost]
+    [HttpPost("Edit/{id}")]
     [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, [Bind("ProjectTaskId, Title, Description, ProjectId")] ProjectTask task)
     {
@@ -101,7 +102,7 @@ public class ProjectTaskController : Controller
         return View(task);
     }
 
-    [HttpGet]
+    [HttpGet("Delete/{id}")]
     public IActionResult Delete(int id)
     {
         var task = _context.Tasks.Include(t => t.Project).FirstOrDefault(t => t.ProjectTaskId == id);
@@ -112,7 +113,7 @@ public class ProjectTaskController : Controller
         return View(task);
     }
 
-    [HttpPost, ActionName("Delete")]
+    [HttpPost("Delete/{id}"), ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteConfirmed(int ProjectTaskId)
     {
@@ -152,5 +153,4 @@ public class ProjectTaskController : Controller
 
         return View("Index", tasks);
     }
-
 }

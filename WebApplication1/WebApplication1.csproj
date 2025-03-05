@@ -16,4 +16,30 @@
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Project\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Project\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Project\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Project\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Project\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProjectTask\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProjectTask\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProjectTask\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProjectTask\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ProjectTask\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Create.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Delete.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Details.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Edit.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\ProjectTask\Index.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Create.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Delete.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Details.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Edit.cshtml" />
+      <AdditionalFiles Include="Areas\ProjectManagement\Views\Project\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

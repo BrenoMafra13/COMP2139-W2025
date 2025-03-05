@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
+using WebApplication1.Areas.ProjectManagement.Models;
 
 namespace WebApplication1.Data;
 

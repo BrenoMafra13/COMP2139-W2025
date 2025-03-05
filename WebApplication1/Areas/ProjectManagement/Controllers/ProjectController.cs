@@ -2,10 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApplication1.Data;
-using WebApplication1.Models;
+using WebApplication1.Areas.ProjectManagement.Models;
 
-namespace WebApplication1.Controllers;
+namespace WebApplication1.Areas.ProjectManagement.Controllers;
 
+[Area("ProjectManagement")]
 [Route("Project")]
 
 public class ProjectController : Controller
@@ -18,20 +19,20 @@ public class ProjectController : Controller
         _context = context;
     }
     
-    [HttpGet]
+    [HttpGet("")]
     public IActionResult Index()
     {
         var projects = _context.Projects.ToList();
         return View(projects);
     }
     
-    [HttpGet]
+    [HttpGet("Create")]
     public IActionResult Create()
     {
         return View();
     }
     
-    [HttpPost]
+    [HttpPost("Create")]
     [ValidateAntiForgeryToken]
     public IActionResult Create(Project project)
     {
@@ -48,7 +49,7 @@ public class ProjectController : Controller
     }
     
     // CRUD: Create - Read - Update - Delete
-    [HttpGet]
+    [HttpGet("Details/{id}")]
     public IActionResult Details(int id)
     {
         // Retrieve project from database
@@ -60,7 +61,7 @@ public class ProjectController : Controller
         return View(project);
     }
 
-    [HttpGet]
+    [HttpGet("Edit/{id}")]
     public IActionResult Edit(int id)
     {
         var project = _context.Projects.Find(id);
@@ -71,7 +72,7 @@ public class ProjectController : Controller
         return View(project);
     }
     
-    [HttpPost]
+    [HttpPost("Edit/{id}")]
     [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, [Bind("ProjectId, Name, Description")] Project project)
     {
@@ -113,7 +114,7 @@ public class ProjectController : Controller
         return _context.Projects.Any(e => e.ProjectId == id);
     }
 
-    [HttpGet]
+    [HttpGet("Delete/{id}")]
     public IActionResult Delete(int id)
     {
         var project = _context.Projects.FirstOrDefault(p => p.ProjectId == id);
@@ -125,7 +126,7 @@ public class ProjectController : Controller
         return View(project);
     }
 
-    [HttpPost, ActionName("Delete")]
+    [HttpPost("Delete"), ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteConfirmed(int ProjectId)
     {
