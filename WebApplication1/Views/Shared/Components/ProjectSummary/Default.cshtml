@@ -1,0 +1,18 @@
+@model WebApplication1.Areas.ProjectManagement.Models.Project;
+
+<div class="project-summary">
+    <p><strong>Project Name:</strong> @Html.DisplayFor(model => model.Name)</p>
+    <p><strong>Description:</strong> @Html.DisplayFor(model => model.Description)</p>
+    <p><strong>Start Date:</strong> @Html.DisplayFor(model => model.startDate, "DateTime")</p>
+    <p><strong>End Date:</strong> @Html.DisplayFor(model => model.endDate, "DateTime")</p>
+    <p><strong>Status:</strong> @Html.DisplayFor(model => model.Status)</p>
+
+    <p><strong>Tasks:</strong></p>
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li><strong>Task Title:</strong> @Html.DisplayFor(model => task.Title)</li>
+            <li><strong>Task Description:</strong> @Html.DisplayFor(model => task.Description)</li>
+        }
+    </ul>
+</div>

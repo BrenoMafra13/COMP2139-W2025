@@ -16,31 +16,33 @@
 
 @if (Model.Any())
 {
-    // Iterate
     <table class="table">
-        <thread>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thread>
-        
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+            <th>Project Details</th> <!-- Nova coluna para os detalhes do projeto -->
+        </tr>
+        </thead>
+
         <tbody>
         @foreach (var project in Model)
         {
             <tr>
-            <td>@project.ProjectId</td>
-            <td>@project.Name</td>
-            <td>@project.Description</td>
-            <td>
-                <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
-                <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
-                <a asp-action="Index" asp-controller="ProjectTask" asp-route-projectId="@project.ProjectId" class="btn btn-secondary">View Tasks</a>
-            </td>
-            <!-- Render any other project properties as desired -->
+                <td>@project.ProjectId</td>
+                <td>@project.Name</td>
+                <td>@project.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@project.ProjectId" class="btn btn-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@project.ProjectId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@project.ProjectId" class="btn btn-danger">Delete</a>
+                    <a asp-action="Index" asp-controller="ProjectTask" asp-route-projectId="@project.ProjectId" class="btn btn-secondary">View Tasks</a>
+                </td>
+                <td>
+                    @await Component.InvokeAsync("ProjectSummary", new { projectId = project.ProjectId })
+                </td>
             </tr>
         }
         </tbody>
@@ -50,10 +52,11 @@ else
 {
     if (searchPerformed)
     {
-        <p>No Projects available with name "@searchString" were found</p>
+        <p>No Projects available with name "@searchString" were found.</p>
     }
     else
     {
-        <p>No projects available</p>
+        <p>No projects available.</p>
     }
 }
+
