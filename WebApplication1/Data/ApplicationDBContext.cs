@@ -10,6 +10,8 @@ public class ApplicationDBContext : DbContext
     public DbSet<Project> Projects { get; set; }
     
     public DbSet<ProjectTask> Tasks { get; set; }
+    
+    public DbSet<ProjectComment> ProjectComments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
