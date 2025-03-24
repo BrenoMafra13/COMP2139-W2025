@@ -249,6 +249,88 @@
       ]
     },
     {
+      "Route": "js/projectComments.iu0w3mnt5z.js",
+      "AssetFile": "js/projectComments.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 22:49:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iu0w3mnt5z"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g="
+        },
+        {
+          "Name": "label",
+          "Value": "js/projectComments.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/projectComments.js",
+      "AssetFile": "js/projectComments.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 22:49:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g="
+        }
+      ]
+    },
+    {
       "Route": "js/site.fr7q2aak1r.js",
       "AssetFile": "js/site.js",
       "Selectors": [],

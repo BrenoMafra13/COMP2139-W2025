@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ofb7Jk6FrGomm05oYGfF5/sj8YPIxcIWAQtH46QLkqY=",
+  "Hash": "FUUNMHx0DygCbakQ/LKNW1hM5ijbzLYfuZIa9GdkPUw=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/projectComments.js",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "js/projectComments#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iu0w3mnt5z",
+      "Integrity": "toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/projectComments.js"
     },
     {
       "Identity": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/site.js",
@@ -1481,6 +1502,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "js/projectComments.iu0w3mnt5z.js",
+      "AssetFile": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/projectComments.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 22:49:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iu0w3mnt5z"
+        },
+        {
+          "Name": "label",
+          "Value": "js/projectComments.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g="
+        }
+      ]
+    },
+    {
+      "Route": "js/projectComments.js",
+      "AssetFile": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/projectComments.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2192"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Mar 2025 22:49:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-toi5U3ANRuCUXNOelpxWmZBfqJ7RWNzF5eln5icwC0g="
         }
       ]
     },

@@ -11,9 +11,9 @@ public class ProjectCommentController : Controller
 {
     private readonly ApplicationDBContext _context;
 
-    public ProjectCommentController(ApplicationDBContext _context)
+    public ProjectCommentController(ApplicationDBContext context)
     {
-        _context = _context;
+        _context = context;
     }
 
     [HttpGet]
@@ -34,7 +34,7 @@ public class ProjectCommentController : Controller
         {
             comment.DatePosted = DateTime.Now;
 
-            _context.ProjectComments.Add(comment);
+            await _context.ProjectComments.AddAsync(comment);
 
             await _context.SaveChangesAsync();
 
@@ -44,7 +44,7 @@ public class ProjectCommentController : Controller
         var errors = ModelState.Values.SelectMany(v => v.Errors)
             .Select(e => e.ErrorMessage);
 
-        return Json(new { success = false, message = "Invalid comment", errors = errors });
+        return Json(new { success = false, message = "Invalid comment data.", errors = errors });
 
     }
 }
