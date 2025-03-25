@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Areas.ProjectManagement.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebApplication1.Data;
 
-public class ApplicationDBContext : DbContext
+public class ApplicationDBContext : IdentityDbContext
 {
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { }
     
@@ -15,6 +16,7 @@ public class ApplicationDBContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Project>()
             .HasMany(p => p.Tasks)

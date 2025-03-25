@@ -16,11 +16,17 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        
+        _logger.LogInformation("HomeController: Index action called at {Time}", DateTime.Now);
+        
         return View();
     }
 
     public IActionResult About()
     {
+        
+        _logger.LogInformation("HomeController: About action called at {Time}", DateTime.Now);
+        
         return View();
     }
     

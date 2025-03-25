@@ -12,15 +12,20 @@ public class ProjectController : Controller
 {
 
     private readonly ApplicationDBContext _context;
+    private readonly ILogger<ProjectController> _logger;
 
-    public ProjectController(ApplicationDBContext context)
+    public ProjectController(ApplicationDBContext context, ILogger<ProjectController> logger)
     {
         _context = context;
+        _logger = logger;
     }
     
     [HttpGet("")]
     public async Task<IActionResult> Index()
     {
+        
+        _logger.LogInformation("ProjectController: Index visited at {Time}", DateTime.Now);
+        
         var projects = await _context.Projects.ToListAsync();
         return View(projects);
     }
@@ -28,6 +33,9 @@ public class ProjectController : Controller
     [HttpGet("Create")]
     public IActionResult Create()
     {
+        
+        _logger.LogInformation("ProjectController: Created(GET) visited at {Time}", DateTime.Now);
+        
         return View();
     }
     
@@ -37,6 +45,9 @@ public class ProjectController : Controller
     {
         if (ModelState.IsValid)
         {
+            
+            _logger.LogInformation("ProjectController: Create(POST) visited at {Time}", DateTime.Now);
+            
             project.startDate = project.startDate.ToUniversalTime();
             project.endDate = project.endDate.ToUniversalTime();
             
@@ -51,10 +62,14 @@ public class ProjectController : Controller
     [HttpGet("Details/{id}")]
     public async Task<IActionResult> Details(int id)
     {
+        
+        _logger.LogInformation("ProjectController: Details visited at {Time}", DateTime.Now);
+        
         // Retrieve project from database
         var project = await _context.Projects.FirstOrDefaultAsync(p => p.ProjectId == id);
         if (project == null)
         {
+            _logger.LogWarning("Project with {id} not found", id);
             return NotFound(); // Returns a 404 error if the project is not found.
         }
         return View(project);
