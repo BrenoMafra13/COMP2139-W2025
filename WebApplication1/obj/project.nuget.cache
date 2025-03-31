@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "45RXGcZEGps=",
+  "dgSpecHash": "21C2IhuiJX8=",
   "success": true,
   "projectFilePath": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -143,6 +143,7 @@
     "/Users/brenolopesmafra/.nuget/packages/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "/Users/brenolopesmafra/.nuget/packages/sendgrid/9.29.3/sendgrid.9.29.3.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/serilog/4.2.0/serilog.4.2.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/serilog.aspnetcore/9.0.0/serilog.aspnetcore.9.0.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/serilog.extensions.hosting/9.0.0/serilog.extensions.hosting.9.0.0.nupkg.sha512",
@@ -152,6 +153,7 @@
     "/Users/brenolopesmafra/.nuget/packages/serilog.sinks.console/6.0.0/serilog.sinks.console.6.0.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/serilog.sinks.debug/3.0.0/serilog.sinks.debug.3.0.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/serilog.sinks.file/6.0.0/serilog.sinks.file.6.0.0.nupkg.sha512",
+    "/Users/brenolopesmafra/.nuget/packages/starkbank-ecdsa/1.3.3/starkbank-ecdsa.1.3.3.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/system.buffers/4.3.0/system.buffers.4.3.0.nupkg.sha512",
     "/Users/brenolopesmafra/.nuget/packages/system.codedom/6.0.0/system.codedom.6.0.0.nupkg.sha512",
