@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@inject SignInManager<IdentityUser> SignInManager
+@using WebApplication1.Areas.ProjectManagement.Models
+@inject SignInManager<ApplicationUser> SignInManager
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container-fluid">
@@ -71,7 +72,7 @@
                         <a class="nav-link text-dark"
                            asp-area="Identity"
                            asp-page="/Account/Login">
-                        <i class="fa fa-sign-in-alt"></i>Login
+                        <i class="fa fa-sign-in-alt"></i> Login
                         </a>
                     </li>
                     
@@ -79,7 +80,7 @@
                         <a class="nav-link text-dark"
                            asp-area="Identity"
                            asp-page="/Account/Register">
-                        <i class="fa-solid fa-user-plus"></i>Register
+                        <i class="fa-solid fa-user-plus"></i> Register
                         </a>
                     </li>
                 }

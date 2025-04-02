@@ -1,41 +1,31 @@
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Threading.Tasks;
 
-namespace WebApplication1.Services;
-
-public class EmailSender : IEmailSender
+namespace WebApplication1.Services
 {
-    private readonly string _sendGridApiKey;
-
-    public EmailSender(IConfiguration configuration)
+    public class EmailSender : IEmailSender
     {
-        _sendGridApiKey = configuration["SendGrid:ApiKey"] 
-                          ?? throw new ArgumentNullException("SendGrid Key is missing");
-    }
+        private readonly string _apiKey;
+        private readonly string _fromEmail;
+        private readonly string _fromName;
 
-    public async Task SendEmailAsync(string email, string subject, string message)
-    {
-        try
+        public EmailSender(IConfiguration configuration)
         {
-            var client = new SendGridClient(_sendGridApiKey);
-            var from = new EmailAddress("brenolopesmafra@gmail.com", "Pm Tool Default Sender");
-            var to = new EmailAddress(email);
-            var msg = MailHelper
-                .CreateSingleEmail(from, to, subject, "Welcome to PM Tool Inc", message);
-            var response = await client.SendEmailAsync(msg);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorMessage = await response.Body.ReadAsStreamAsync();
-                Console.WriteLine($"An error occurred while sending email: {errorMessage}");
-            }
+            _apiKey = configuration["SendGrid:ApiKey"];
+            _fromEmail = configuration["EmailSettings:FromEmail"];
+            _fromName = configuration["EmailSettings:FromDisplayName"];
         }
-        catch(Exception ex)
+
+        public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            Console.WriteLine($"An error occurred while sending email: {ex.Message}");
-            throw;
+            var client = new SendGridClient(_apiKey);
+            var from = new EmailAddress(_fromEmail, _fromName);
+            var to = new EmailAddress(email);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, "", htmlMessage);
+            var response = await client.SendEmailAsync(msg);
         }
     }
 }
+

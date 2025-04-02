@@ -5,3 +5,65 @@
 <div class="text-center">
     <h1 class="display-4">COMP 2139 - ICE Labs</h1>
 </div>
+
+<div class="home-container">
+    <div class="home-section">
+        <i class="fas fa-project-diagram fa-2x"></i>
+        <h3>Project Management</h3>
+        <p>Organize and track all your projects in one place. Gain insights into project progress and status.</p>
+        <button onclick="location.href='/Project'">Manage Projects</button>
+    </div>
+    <div class="home-section">
+        <i class="fas fa-tasks fa-2x"></i>
+        <h3>Task Management</h3>
+        <p>Sign up to start tracking your tasks and managing your responsibilities efficiently.</p>
+        <button onclick="location.href='/Project'">View Tasks</button>
+    </div>
+    <div class="home-section">
+        <i class="fas fa-users fa-2x"></i>
+        <h3>See details of this application</h3>
+        <p>Learn more about us and our details.</p>
+        <button onclick="location.href='/Home/About'">About</button>
+    </div>
+</div>
+
+<style>
+    .home-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    .home-section {
+        width: 30%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #ccc; /* Optional */
+    }
+
+    .home-section h3 {
+        color: #333;
+    }
+
+    .home-section p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    button {
+        background-color: #0062cc;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #004ca3;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
