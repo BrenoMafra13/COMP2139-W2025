@@ -1,31 +1,43 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication1.Areas.ProjectManagement.Models // Especifica o namespace correto
+@inject UserManager<WebApplication1.Areas.ProjectManagement.Models.ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
+    WebApplication1.Areas.ProjectManagement.Models.ApplicationUser user = await UserManager.GetUserAsync(User);
+    string fullName = user == null ? "" : $"{user.FirstName} {user.LastName}";
 }
 
-<div class="text-center">
+<div class="text-center mt-3">
+    @if (!string.IsNullOrEmpty(fullName)) {
+        <h2>Welcome, @fullName!</h2>
+    }
     <h1 class="display-4">COMP 2139 - ICE Labs</h1>
 </div>
 
-<div class="home-container">
-    <div class="home-section">
-        <i class="fas fa-project-diagram fa-2x"></i>
-        <h3>Project Management</h3>
-        <p>Organize and track all your projects in one place. Gain insights into project progress and status.</p>
-        <button onclick="location.href='/Project'">Manage Projects</button>
-    </div>
-    <div class="home-section">
-        <i class="fas fa-tasks fa-2x"></i>
-        <h3>Task Management</h3>
-        <p>Sign up to start tracking your tasks and managing your responsibilities efficiently.</p>
-        <button onclick="location.href='/Project'">View Tasks</button>
-    </div>
-    <div class="home-section">
-        <i class="fas fa-users fa-2x"></i>
-        <h3>See details of this application</h3>
-        <p>Learn more about us and our details.</p>
-        <button onclick="location.href='/Home/About'">About</button>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 home-section">
+            <i class="fas fa-project-diagram fa-2x"></i>
+            <h3>Project Management</h3>
+            <p>Organize and track all your projects in one place. Gain insights into project progress and status.</p>
+            <button onclick="location.href='/Project'">Manage Projects</button>
+        </div>
+        <div class="col-md-4 home-section">
+            <i class="fas fa-tasks fa-2x"></i>
+            <h3>Task Management</h3>
+            <p>Sign up to start tracking your tasks and managing your responsibilities efficiently.</p>
+            <button onclick="location.href='/Project'">View Tasks</button>
+        </div>
+        <div class="col-md-4 home-section">
+            <i class="fas fa-users fa-2x"></i>
+            <h3>See details of this application</h3>
+            <p>Learn more about us and our details.</p>
+            <button onclick="location.href='/Home/About'">About</button>
+        </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
 
 <style>
     .home-container {
@@ -40,7 +52,7 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         padding: 20px;
         text-align: center;
-        border: 1px solid #ccc; /* Optional */
+        border: 1px solid #ccc; 
     }
 
     .home-section h3 {

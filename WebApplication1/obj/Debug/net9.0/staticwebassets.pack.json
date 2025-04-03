@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/images/default_profile_picture.png",
+      "PackagePath": "staticwebassets/images/default_profile_picture.png"
+    },
+    {
       "Id": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/projectComments.js",
       "PackagePath": "staticwebassets/js/projectComments.js"
     },

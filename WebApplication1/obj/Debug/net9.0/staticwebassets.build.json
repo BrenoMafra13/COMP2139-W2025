@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wr9JhcMbxR6T42EC8lVIR7pZRMXQsr9XbdntB7Iwpoo=",
+  "Hash": "M8TKvb1LvSaE+8x6UqLIbGnqScP0IubrxYWdJArRths=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -4026,6 +4026,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/images/default_profile_picture.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "images/default_profile_picture#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o29tds4mha",
+      "Integrity": "MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/default_profile_picture.png"
     },
     {
       "Identity": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/js/projectComments.js",
@@ -14466,6 +14487,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-F1wMlgb/juW08DFUssW6Pm9EBKfjXXRiSK0F5FgXxJU="
+        }
+      ]
+    },
+    {
+      "Route": "images/default_profile_picture.o29tds4mha.png",
+      "AssetFile": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/images/default_profile_picture.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 19:45:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o29tds4mha"
+        },
+        {
+          "Name": "label",
+          "Value": "images/default_profile_picture.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o="
+        }
+      ]
+    },
+    {
+      "Route": "images/default_profile_picture.png",
+      "AssetFile": "/Users/brenolopesmafra/RiderProjects/WebApplication1/WebApplication1/wwwroot/images/default_profile_picture.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 19:45:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o="
         }
       ]
     },

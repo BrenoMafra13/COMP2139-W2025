@@ -1,23 +1,30 @@
 @using Microsoft.AspNetCore.Identity
-@using Microsoft.AspNetCore.Mvc.TagHelpers
 @using WebApplication1.Areas.ProjectManagement.Models
+@inject UserManager<ApplicationUser> UserManager
 @inject SignInManager<ApplicationUser> SignInManager
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container-fluid">
-        <a class="navbar-brand"
-           asp-area=""
-           asp-controller="Home"
-           asp-action="Index">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
             <i class="fa-solid fa-building" style="margin-right: 5px;"></i> PM Tool Inc
         </a>
+
+        <!-- User image and name display as an additional interactive element -->
+        @if (SignInManager.IsSignedIn(User))
+        {
+            var user = await UserManager.GetUserAsync(User);
+            string imageSrc = user?.ProfilePicture != null ? $"data:image/jpeg;base64,{Convert.ToBase64String(user.ProfilePicture)}" : "/images/default_profile_picture.png"; // Ensure you have a default image at this path
+            <a href="@Url.Page("/Account/Manage/Index", new { area = "Identity" })" class="navbar-text" style="text-decoration: none; margin-left: 10px;">
+                <img src="@imageSrc" alt="User Image" style="width: 30px; height: 30px; border-radius: 50%;">
+                <span style="vertical-align: middle;">@user.UserName</span>
+            </a>
+        }
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-
             <form class="d-flex align-items-center" asp-controller="Home" asp-action="GeneralSearch" method="get">
                 <div class="input-group">
                     <input class="form-control me-2" type="text" placeholder="Search..." name="searchString" required/>
@@ -49,17 +56,17 @@
                         <i class="fa-solid fa-list-check" style="margin-right: 5px;"></i>Projects
                     </a>
                 </li>
-                
                 @if (SignInManager.IsSignedIn(User))
                 {
+                    <!-- Profile menu item kept as an explicit link -->
                     <li class="nav-item">
                         <a class="nav-link text-dark"
                            asp-area="Identity"
                            asp-page="/Account/Manage/Index"
-                           title="Manage your profile"><i class="fa-solid fa-user-settings"></i>Profile
+                           title="Manage your profile"><i class="fa-solid fa-user-settings"></i> Profile
                         </a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <form asp-area="Identity" asp-page="/Account/Logout" method="post">
                             <button type="submit" class="nav-link btn btn-link text-dark" style="cursor: pointer">Logout</button>
@@ -72,19 +79,18 @@
                         <a class="nav-link text-dark"
                            asp-area="Identity"
                            asp-page="/Account/Login">
-                        <i class="fa fa-sign-in-alt"></i> Login
+                            <i class="fa fa-sign-in-alt"></i> Login
                         </a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link text-dark"
                            asp-area="Identity"
                            asp-page="/Account/Register">
-                        <i class="fa-solid fa-user-plus"></i> Register
+                            <i class="fa-solid fa-user-plus"></i> Register
                         </a>
                     </li>
                 }
-                
             </ul>
         </div>
     </div>

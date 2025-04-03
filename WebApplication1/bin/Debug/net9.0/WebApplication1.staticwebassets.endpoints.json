@@ -9428,6 +9428,88 @@
       ]
     },
     {
+      "Route": "images/default_profile_picture.o29tds4mha.png",
+      "AssetFile": "images/default_profile_picture.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 19:45:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o29tds4mha"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o="
+        },
+        {
+          "Name": "label",
+          "Value": "images/default_profile_picture.png"
+        }
+      ]
+    },
+    {
+      "Route": "images/default_profile_picture.png",
+      "AssetFile": "images/default_profile_picture.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "138120"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 02 Apr 2025 19:45:23 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MLB6V2nuhrsTx6fe7ICU0N2c7++rc1XTj9f/fk3h7/o="
+        }
+      ]
+    },
+    {
       "Route": "js/projectComments.71lzjwxmon.js",
       "AssetFile": "js/projectComments.js.gz",
       "Selectors": [
