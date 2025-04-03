@@ -5,7 +5,7 @@
     <thead>
     <tr>
         <th>Role Name</th>
-        <th>Actions</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tbody>
@@ -14,8 +14,17 @@
         <tr>
             <td>@role.Name</td>
             <td>
-                <a href="@Url.Action("Edit", "RoleManager", new { id = role.Id })">Edit</a> |
-                <a href="@Url.Action("Delete", "RoleManager", new { id = role.Id })">Delete</a>
+                @{
+                    var description = role.Name switch
+                    {
+                        "SuperAdmin" => "Full system access. Can manage users, roles, and settings.",
+                        "Test" => "Can manage tests, projects and users, but not system settings.",
+                        "Executor" => "Can access and manage their assigned tasks.",
+                        "Manager" => "Can manage team tasks and monitor progress.",
+                        _ => "Custom role with specific permissions."
+                    };
+                }
+                @description
             </td>
         </tr>
     }
