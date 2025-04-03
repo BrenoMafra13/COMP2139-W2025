@@ -1,0 +1,23 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<h2>Roles</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Role Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var role in Model)
+    {
+        <tr>
+            <td>@role.Name</td>
+            <td>
+                <a href="@Url.Action("Edit", "RoleManager", new { id = role.Id })">Edit</a> |
+                <a href="@Url.Action("Delete", "RoleManager", new { id = role.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

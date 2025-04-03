@@ -1,0 +1,14 @@
+@model bool
+
+@if (Model)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-shield-halved" style="margin-right: 5px;"></i> Admin
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+            <li><a class="dropdown-item" asp-controller="UserRoles" asp-action="Index">Manage User Roles</a></li>
+            <li><a class="dropdown-item" asp-controller="RoleManager" asp-action="Index">Manage Roles</a></li>
+        </ul>
+    </li>
+}

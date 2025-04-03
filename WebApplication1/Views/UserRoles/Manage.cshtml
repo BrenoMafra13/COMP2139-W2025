@@ -1,0 +1,19 @@
+@model ManageUserRolesViewModel
+
+<h1>Manage User Roles for @Model.UserName</h1>
+
+<form asp-action="Manage" method="post">
+    <input type="hidden" asp-for="UserId" />
+
+    @for (int i = 0; i < Model.Roles.Count; i++)
+    {
+        <div class="form-check">
+            <input asp-for="Roles[i].IsSelected" class="form-check-input" />
+            <input asp-for="Roles[i].RoleName" type="hidden" />
+            <label class="form-check-label">@Model.Roles[i].RoleName</label>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

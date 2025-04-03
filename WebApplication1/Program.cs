@@ -2,14 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using Serilog;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using WebApplication1.Areas.ProjectManagement.Models;
 using WebApplication1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure logging
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
+// Add services to the container.
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -26,15 +33,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
-builder.Services.AddRazorPages();
 builder.Services.AddHttpContextAccessor();
-
-Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .CreateLogger();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -43,13 +46,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapRazorPages();
-app.MapControllerRoute(
-    name: "areas",
-    pattern: "{area:exists}/{controller=Project}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -112,5 +114,3 @@ async Task CreateSuperAdminUser(IServiceProvider serviceProvider)
         Log.Logger.Information("SuperAdmin already exists.");
     }
 }
-
-
